@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #ececec;
+}
+
+h1,
+.h1 {
+    font-size: 3.3125rem;
+    line-height: 1.15em;
+}
+
+h2,
+.h2 {
+    font-size: 2.25rem;
+}
+
+h3,
+.h3 {
+    font-size: 1.5625rem;
+    line-height: 1.4em;
+    margin: 20px 0 10px;
+}
+
+h4,
+.h4 {
+    font-size: 1.125rem;
+    line-height: 1.4em;
+    font-weight: 300;
+}
+
+h5,
+.h5 {
+    font-size: 1.0625rem;
+    line-height: 1.4em;
+    margin-bottom: 15px;
+}
+
+h6,
+.h6 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.card {
+    font-size: 1rem;
+    border: none;
+}
+
+.card .card-header {
+    border: none;
+    background: transparent;
+}
+
+.card .card-body {
+    border: none;
+    background: transparent;
+}
+
+.card .card-body p {
+    text-align: center;
+    margin-top: 0;
+}
+
+.card .card-footer {
+    border: none;
+    background: transparent;
+}
+
+/*------------ Login container ------------*/
+
+.box-area {
+    width: 930px;
+}
+
+/*------------ Right box ------------*/
+
+.right-box {
+    padding: 40px 30px 40px 40px;
+}
+
+/*------------ Custom Placeholder ------------*/
+
+::placeholder {
+    font-size: 16px;
+}
+
+.rounded-4 {
+    border-radius: 20px;
+}
+.rounded-5 {
+    border-radius: 30px;
+}
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 768px) {
+    .box-area {
+        margin: 0 10px;
+    }
+
+    .left-box {
+        height: 120px;
+        overflow: hidden;
+    }
+
+    .left-box .featured-image {
+        display: none;
+    }
+
+    .left-box small{
+		font-size: 80%;
+    }
+
+    .right-box {
+        padding: 20px;
+    }
+
+    .right-box .card .card-header .header-text h2{
+        margin-bottom: 0;
+    }
+
+    .right-box .card .card-header .header-text p{
+        margin-bottom: 0;
+    }
+}
