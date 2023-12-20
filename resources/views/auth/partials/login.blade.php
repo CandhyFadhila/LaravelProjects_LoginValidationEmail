@@ -585,7 +585,7 @@
 							<label for="formCheck" class="form-check-label text-secondary"><small>Show Password</small></label>
 						</div>
 						<div class="forgot">
-							<small><a href="{{ route('password.request') }}">Forgot Password?</a></small>
+							<small><a href="{{ url('/forgot-password') }}">Forgot Password?</a></small>
 						</div>
 					</div>
 				</div>
@@ -735,6 +735,19 @@
 						title: "{{ Session::get('udah_verif') }}"
 					});
 				})();
+			@endif
+
+			// AFTER RESET PASSWORD UPDATE
+			@if (Session::has('status_password_reset'))
+				Swal.fire({
+					icon: 'success',
+					title: '<strong>New Password Updated</strong>',
+					html: 'Your password has been <b>successfully updated</b>. Please use your new password to log in to your account.',
+					showConfirmButton: true,
+					confirmButtonColor: '#0174BE',
+					focusConfirm: false,
+					confirmButtonText: 'Yes, confirm!'
+				});
 			@endif
 		});
 			

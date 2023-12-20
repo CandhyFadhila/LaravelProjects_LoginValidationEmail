@@ -21,7 +21,7 @@ use App\Http\Controllers\PasswordReset_Controller;
 
 Route::get("/", [Home_Controller::class, "index"]);
 
-// ! AUTH SECTION
+// ? AUTH SECTION
 Route::controller(Auth_Controller::class)->group(function () {
     // TODO | LOGIN SESSION
     Route::get("session_users", "login_index")->name('login');
@@ -51,19 +51,20 @@ Route::controller(EmailVerification_Controller::class)->group(function () {
     Route::post('/email/verify/resend-email-verification', 'resendEmailVerif')->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 });
 
-// ! FORGET PASSWORD
+// ! FORGOT + RESET PASSWORD
 Route::controller(PasswordReset_Controller::class)->group(function(){
     // TODO || VIEW RESET
-    Route::get('/forgot-password', 'index')->middleware('guest')->name('password.request');
+    Route::get('/forgot-password', 'index')->name('password.request');
 
     // TODO || SEND THE PASSWORD FROM EMAIL FORM
-    Route::post('/forgot-password', 'resetPassword')->middleware('guest')->name('password.email');
+    Route::post('/forgot-password', 'resetPassword')->name('password.email');
 
     // TODO || REDIRECT FORM PASSWORD WHEN CLICK BUTTON IN INBOX EMAIL
-    Route::get('/reset-password/{token}', 'resetPasswordForm')->middleware('guest')->name('password.reset');
+    Route::get('/reset-password/{token}', 'resetPasswordIndex')->name('password.reset');
 
-    // TODO || 
+    // TODO || RESET THE PASSWORD BY INSERT NEW PASSWORD ON FORM PAGE
+    Route::post('/reset-password', 'resetPasswordForm')->name('password.update');
 });
 
-// ! DASHBOARD SECTION
+// ? DASHBOARD SECTION
 Route::get("dashboard", [Dashboard_Controller::class, "index"])->middleware(['auth', 'auth.session', 'verified']);

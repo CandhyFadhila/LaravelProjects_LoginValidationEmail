@@ -28,7 +28,7 @@
 
 		<!----------------------- Login Container -------------------------->
 
-		<div class="row border rounded-5 p-3 bg-white shadow box-area">
+		<div class="row border rounded-4 p-3 bg-white shadow box-area">
 
 			<!--------------------------- Left Box ----------------------------->
 

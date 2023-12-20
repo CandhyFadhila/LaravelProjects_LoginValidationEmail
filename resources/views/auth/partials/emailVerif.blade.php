@@ -77,7 +77,7 @@
 								<h2><strong>Verify Your Email</strong></h2>
 							</blockquote>
 							<figcaption class="blockquote-footer">
-								by <cite title="Source Title">www.socialmedia.co.id</cite>
+								<cite title="Source Title"><a href="{{ url('/') }}">www.socialmedia.co.id</a></cite>
 							</figcaption>
 						</figure>
 

@@ -153,10 +153,10 @@
 					<div class="header-text">
 						<figure class="text-center">
 							<blockquote class="blockquote">
-								<h2><strong>Forgot Your Password ?</strong></h2>
+								<h2><strong>Forgot Password</strong></h2>
 							</blockquote>
 							<figcaption class="blockquote-footer">
-								by <cite title="Source Title">www.socialmedia.co.id</cite>
+								<cite title="Source Title"><a href="{{ url('/') }}">www.socialmedia.co.id</a></cite>
 							</figcaption>
 						</figure>
 
@@ -165,18 +165,14 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<div class="mb-4">
-						<p>We cannot simply send you your old password. A unique link to reset your
-							password has been generated for you. To reset your password, click the
-							following link and follow the instructions.
-						</p>
-					</div>
-					<div class="">
-						<label for="email" class="form-label">Email address <strong class="text-danger">*</strong></label>
+					<div class="mb-3">
+						<label for="email" class="form-label">
+							Email address <strong class="text-danger">*</strong>
+						</label>
+
 						<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
 							placeholder="Email address" value="{{ Session::get('email') }}">
-						<div id="emailHelp" class="form-text">To reset your password,  click the
-							following link and follow the instructions.</div>
+						<div id="emailHelp" class="form-text">We are unable to retrieve your old password. Please create a new password by entering your email address and following the provided link for instructions.</div>
 						@error('email')
 						<small class="text-danger">
 							{{ $message }}
@@ -189,23 +185,11 @@
 					{{-- <small>Don`t receive an email ?</small> --}}
 					<a href="#">
 						<button type="submit" class="btn btn-outline-warning fw-bold w-100">
-							Reset Password
+							Send Reset Password
 						</button>
 					</a>
 				</div>
 			</div>
-
-			{{-- <figure class="text-end">
-				<blockquote class="blockquote">
-					<small>Did`t receive an email?</small>
-				</blockquote>
-				<figcaption class="blockquote-footer">
-					<a href="#">
-						<button type="submit" class="btn btn-sm btn-outline-primary fw-bold">
-							Resend Email Verification</button>
-					</a>
-				</figcaption>
-			</figure> --}}
 		</form>
 
 	</div>
@@ -217,12 +201,12 @@
 @section('sw2_toastr')
 <script>
 	$(document).ready(function() {
-			// LOGOUT TOASTR
+			// SUCCESS
 			@if (Session::has('status'))
 				Swal.fire({
 					icon: 'success',
-					title: '<strong>Reset Password Success</strong>',
-					html: 'The email or password you entered is <b>incorrect</b>. Please <b>double-check</b> and <b>try again</b>.',
+					title: '<strong>Password Reset Link Success</strong>',
+					html: 'A notification has been sent! Please <b>check your email inbox</b> for a <b>link to reset your password</b>.',
 					showConfirmButton: true,
 					confirmButtonColor: '#0174BE',
 					focusConfirm: false,
@@ -234,8 +218,8 @@
 			@if (Session::has('errors'))
 				Swal.fire({
 					icon: 'error',
-					title: '<strong>Reset Password Failed</strong>',
-					html: 'The email you entered is <b>incorrect</b>. Please <b>double-check</b> and <b>try again</b>.',
+					title: '<strong>Password Reset Link Failed</strong>',
+					html: 'We couldn`t send the password reset email. Please <b>make sure the email is filled in correctly</b>.',
 					showConfirmButton: true,
 					confirmButtonColor: '#0174BE',
 					focusConfirm: false,
