@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth_Controller;
 use App\Http\Controllers\Home_Controller;
 use App\Http\Controllers\Dashboard_Controller;
 use App\Http\Controllers\EmailVerification_Controller;
+use App\Http\Controllers\PasswordReset_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,20 @@ Route::controller(EmailVerification_Controller::class)->group(function () {
 
     // TODO | RE-SEND EMAIL VERIF
     Route::post('/email/verify/resend-email-verification', 'resendEmailVerif')->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+});
+
+// ! FORGET PASSWORD
+Route::controller(PasswordReset_Controller::class)->group(function(){
+    // TODO || VIEW RESET
+    Route::get('/forgot-password', 'index')->middleware('guest')->name('password.request');
+
+    // TODO || SEND THE PASSWORD FROM EMAIL FORM
+    Route::post('/forgot-password', 'resetPassword')->middleware('guest')->name('password.email');
+
+    // TODO || REDIRECT FORM PASSWORD WHEN CLICK BUTTON IN INBOX EMAIL
+    Route::get('/reset-password/{token}', 'resetPasswordForm')->middleware('guest')->name('password.reset');
+
+    // TODO || 
 });
 
 // ! DASHBOARD SECTION
